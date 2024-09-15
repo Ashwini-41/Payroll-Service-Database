@@ -16,4 +16,12 @@ class EmployeePayrollServiceTest {
 		
 	}
 	
+	@Test
+	public void givenNewSalary_WhenUpdated_ShouldSyncWithDB() throws EmployeePayrollException{
+		EmployeePayrollServiceDB employeePayrollService = new EmployeePayrollServiceDB();
+		employeePayrollService.updateEmployeeeSalary("Ashwini", 500000.00);
+		double salaryDB = employeePayrollService.getEmployeeSalaryFromDB("Ashwini");
+		assertEquals(500000.00,salaryDB);
+		
+	}
 }

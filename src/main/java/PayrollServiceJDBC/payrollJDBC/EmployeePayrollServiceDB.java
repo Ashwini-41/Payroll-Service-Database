@@ -73,7 +73,7 @@ public class EmployeePayrollServiceDB {
 			preparedStatement.setString(1, name);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
-			if(!resultSet.next()) {
+			if(resultSet.next()) {
 				return resultSet.getDouble("salary");
 			}else {
 				throw new EmployeePayrollException("Employee " + name + " not found. ");
